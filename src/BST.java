@@ -22,12 +22,12 @@ public class BST {
         if (key == null) throw new IllegalArgumentException("can't insert null key");
         root = insert(root, key, value);
     }
-    private Node insert(Node root, Integer key, Integer val) {
-        if (root == null) return new Node(key, val);
-        if (key.compareTo(root.key) < 0) root.left = insert(root.left, key, val);
-        else if (key.compareTo(root.key) > 0) root.right = insert(root.right, key, val);
-        else root.value = val;
-        return root;
+    private Node insert(Node node, Integer key, Integer val) {
+        if (node == null) return new Node(key, val);
+        if (key.compareTo(node.key) < 0) node.left = insert(node.left, key, val);
+        else if (key.compareTo(node.key) > 0) node.right = insert(node.right, key, val);
+        else node.value = val;
+        return node;
     }
 
     public void delete(Integer key) {
